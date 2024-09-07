@@ -16,16 +16,6 @@ app.get("/calculations", (req, res) => {
   console.log("GET, handles calculations route");
   res.send(calculations);
 });
-// POST /calculations
-app.post("/calculations", (req, res) => {
-  console.log(req.body);
-  let result;
-  if (operator === "+") {
-    result = numOne + numTwo;
-  } else if (operator === "-") {
-    result = numOne - numTwo;
-  }
-});
 
 // PLEASE DO NOT MODIFY ANY CODE BELOW THESE BEARS:
 // 🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸
