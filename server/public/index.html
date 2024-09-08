@@ -11,21 +11,27 @@
 
     <form data-testid="calculator">
       <input data-testid="numOne" placeholder="First Number">
-      <button>+</button>
-      <button>-</button>
-      <button>*</button>
-      <button>/</button>
-      <input data-testid="numTwo" placeholder="Second Number">
-      <button>=</button>
-      <button>C</button>
+      <button type="button" class="operator" data-operator="+">+</button>
+      <button type="button" class="operator" data-operator="-">-</button>
+      <button type="button" class="operator" data-operator="*">*</button>
+      <button type="button" class="operator" data-operator="/">/</button>
+      <input data-testid="numTwo" type="number" placeholder="Second Number">
+      <button type="button" id="calculate">=</button>
+      <button type="button" id="clear">C</button>
     </form>
 
     <section data-testid="recentResult">
       <!-- The most recent calculation result goes here. -->
+       <h2>Most recent result</h2>
+       <ul></ul>
     </section>
-
+<ul>
+  <li></li>
+</ul>
     <section data-testid="resultHistory">
       <!-- The list of calculation results goes here. -->
+       <h2>Calculation History:</h2>
+       <ul></ul>
     </section>
   </body>
 </html>

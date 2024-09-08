@@ -16,6 +16,32 @@ app.get("/calculations", (req, res) => {
   console.log("GET, handles calculations route");
   res.send(calculations);
 });
+// POST /calculations
+app.post("/calculations", (req, res) => {
+  console.log(req.body);
+  let result;
+  switch (operator) {
+    case "+":
+      result = numOne + numTwo;
+      break;
+    case "-":
+      numOne - numTwo;
+      break;
+    case "*":
+      numOne * numTwo;
+      break;
+    case "/":
+      numOne / numTwo;
+
+      if (numTwo === 0) {
+        return res
+          .status(400)
+          .send(
+            "Oops calculations object should have `numOne` and `numTwo` keys"
+          );
+      }
+  }
+});
 
 // PLEASE DO NOT MODIFY ANY CODE BELOW THESE BEARS:
 // 🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸
