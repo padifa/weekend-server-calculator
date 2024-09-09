@@ -2,7 +2,7 @@ body {
     background-color: aqua;
 }
 
-button[data-operator]{
+button[data-operator]:hover {
 background-color: #4CAF50;
 color: white;
 border: none;
@@ -20,22 +20,24 @@ button[data-operator]:active {
     transform: scale(0.98);
 }
 
-button[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 10pc;
-}
-
-button[type="button"] {
-    background-color: #4CAF50;
+button[type="submit"]:hover {
+    background-color: #f7cb08;
     color: white;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     border-radius: 10px;
+    transform: scale(0.98);
+}
+
+button[onClick="clearInputs()"]:hover {
+    background-color: #e3180e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    transform: scale(0.98);
 }
