@@ -11,36 +11,50 @@ let calculations = [];
 
 // Here's a wonderful place to make some routes:
 
-// GET /calculations
+// GET /calculations - sends the calculation history back to the client
 app.get("/calculations", (req, res) => {
-  console.log("GET, handles calculations route");
-  res.send(calculations);
+  res.send(calculations); // send the full history of calculations
 });
+
 // POST /calculations
 app.post("/calculations", (req, res) => {
-  console.log(req.body);
+  const { numOne, numTwo, operator } = req.body;
+
+  //validate that the required fields are present
+  if (!numOne || !numTwo || !operator) {
+    return res.status(400).send("Required fields");
+  }
+
+  //performing the operation
+
   let result;
   switch (operator) {
     case "+":
-      result = numOne + numTwo;
+      result = Number(numOne) + Number(numTwo);
       break;
     case "-":
-      numOne - numTwo;
-      break;
+      result = Number(numOne) - Number(numTwo);
     case "*":
-      numOne * numTwo;
+      result = Number(numOne) * Number(numTwo);
       break;
     case "/":
-      numOne / numTwo;
-
-      if (numTwo === 0) {
-        return res
-          .status(400)
-          .send(
-            "Oops calculations object should have `numOne` and `numTwo` keys"
-          );
-      }
+      result = Number(numOne) / Number(numTwo);
+      break;
+    default:
+      return res.status(400).send("Invalid operator");
   }
+  // create a new calculation object
+  const newCalculation = {
+    numOne: Number(numOne),
+    numTwo: Number(numTwo),
+    operator,
+    result,
+  };
+  // Send the new calculation to the array calculations
+  calculations.push(newCalculation);
+
+  // Send a success status
+  res.status(201).send(newCalculation);
 });
 
 // PLEASE DO NOT MODIFY ANY CODE BELOW THESE BEARS:
