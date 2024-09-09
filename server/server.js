@@ -46,7 +46,12 @@ app.post("/calculations", (req, res) => {
       return res.status(400).send("Invalid operator");
   }
   // create a new calculation object
-  const newCalculation = {};
+  const newCalculation = {
+    numOne: Number(numOne),
+    numTwo: Number(numTwo),
+    operator,
+    result,
+  };
   // Send the new calculation to the array calculations
   calculations.push(newCalculation);
 

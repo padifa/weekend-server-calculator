@@ -11,14 +11,14 @@
     <h1>Server-Side Calculator</h1>
 
     <form data-testid="calculator">
-      <input data-testid="numOne" placeholder="First Number">
-      <button type="button" class="operator" data-operator="+">+</button>
-      <button type="button" class="operator" data-operator="-">-</button>
-      <button type="button" class="operator" data-operator="*">*</button>
-      <button type="button" class="operator" data-operator="/">/</button>
-      <input data-testid="numTwo" type="number" placeholder="Second Number">
-      <button type="button" id="calculate">=</button>
-      <button type="button" id="clear">C</button>
+      <input id="numOne" data-testid="numOne" placeholder="First Number">
+      <button type="button" data-operator="+">+</button>
+      <button type="button" data-operator="-">-</button>
+      <button type="button" data-operator="*">*</button>
+      <button type="button" data-operator="/">/</button>
+      <input id="numTwo" data-testid="numTwo" placeholder="Second Number">
+      <button type="submit">=</button>
+      <button type="button" onclick="clearInputs()">C</button>
     </form>
 
     <section data-testid="recentResult">
