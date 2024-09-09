@@ -16,7 +16,9 @@ app.get("/calculations", (req, res) => {
   res.send(calculations); // send the full history of calculations
 });
 
-// POST /calculations
+// POST /calculations, receives the new calculations,
+//performs the operation and stores the result
+
 app.post("/calculations", (req, res) => {
   const { numOne, numTwo, operator } = req.body;
 
@@ -44,12 +46,7 @@ app.post("/calculations", (req, res) => {
       return res.status(400).send("Invalid operator");
   }
   // create a new calculation object
-  const newCalculation = {
-    numOne: Number(numOne),
-    numTwo: Number(numTwo),
-    operator,
-    result,
-  };
+  const newCalculation = {};
   // Send the new calculation to the array calculations
   calculations.push(newCalculation);
 
